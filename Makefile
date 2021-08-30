@@ -27,7 +27,7 @@ ARCH= -gencode=arch=compute_30,code=sm_30 \
       -gencode=arch=compute_75,code=sm_75 \
 
 #NVCCFLAGS=-std=c++11 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
-NVCCFLAGS=-std=c++11 "${ARCH}" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
+NVCCFLAGS=-std=c++11 ${ARCH} -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
 
 
 CUDA_HOME=/usr/local/cuda
