@@ -18,7 +18,7 @@
 
 namespace util {
 
-    PRId64 getSystemTime()
+    uint64_t getSystemTime()
     {
 #ifdef _WIN32
         return GetTickCount64();
