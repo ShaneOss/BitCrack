@@ -16,15 +16,18 @@ CXXFLAGS=-O2 -std=c++11
 COMPUTE_CAP=75
 NVCC=nvcc
 
-ARCH = -gencode arch=compute_37,code=sm_37 \
-       -gencode arch=compute_50,code=sm_50 \
-       -gencode arch=compute_60,code=sm_60 \
-       -gencode arch=compute_61,code=sm_61 \
-       -gencode arch=compute_70,code=sm_70 \
-       -gencode arch=compute_75,code=sm_75 \
-       -gencode arch=compute_37,code=compute_37 \
+ARCH= -gencode arch=compute_30,code=sm_30 \
+      -gencode arch=compute_35,code=sm_35 \
+      -gencode arch=compute_37,code=sm_37 \
+      -gencode arch=compute_50,code=[sm_50,compute_50] \
+      -gencode arch=compute_52,code=[sm_52,compute_52] \
+      -gencode arch=compute_60,code=sm_60 \
+      -gencode arch=compute_61,code=sm_61 \
+      -gencode arch=compute_70,code=sm_70 \
+      -gencode arch=compute_75,code=sm_75 \
 
-NVCCFLAGS=-std=c++11 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
+#NVCCFLAGS=-std=c++11 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
+NVCCFLAGS=-std=c++11 "${ARCH}" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
 
 
 CUDA_HOME=/usr/local/cuda
