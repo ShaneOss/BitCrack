@@ -13,7 +13,7 @@ cuda:
 		${NVCC} -c $$file -o $$file".o" ${NVCCFLAGS} -rdc=true ${INCLUDE} -I${CUDA_INCLUDE} -I${CUDA_MATH};\
 	done
 
-	${NVCC} -dlink -o cuda_libs.o *.cu.o -lcudadevrt -lcudart -gencode=arch=compute_50,code=sm_50
+	${NVCC} -dlink -o cuda_libs.o *.cu.o -lcudadevrt -lcudart
 
 	ar rvs ${LIBDIR}/lib$(NAME).a *.o
 
