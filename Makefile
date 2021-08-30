@@ -13,7 +13,7 @@ CXX=g++
 CXXFLAGS=-O2 -std=c++11
 
 # CUDA variables
-COMPUTE_CAP=70
+COMPUTE_CAP=75
 NVCC=nvcc
 
 ARCH = -gencode arch=compute_37,code=sm_37 \
