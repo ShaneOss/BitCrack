@@ -18,14 +18,14 @@
 
 namespace util {
 
-    uint64 getSystemTime()
+    long int getSystemTime()
     {
 #ifdef _WIN32
         return GetTickCount64();
 #else
         struct timeval t;
         gettimeofday(&t, NULL);
-        return (uint64)t.tv_sec * 1000 + t.tv_usec / 1000;
+        return (long int)t.tv_sec * 1000 + t.tv_usec / 1000;
 #endif
     }
 
