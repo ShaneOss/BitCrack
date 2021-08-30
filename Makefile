@@ -13,8 +13,9 @@ CXX=g++
 CXXFLAGS=-O2 -std=c++11
 
 # CUDA variables
-COMPUTE_CAP=30
+COMPUTE_CAP=60
 NVCC=nvcc
+
 ARCH = -gencode arch=compute_37,code=sm_37 \
        -gencode arch=compute_50,code=sm_50 \
        -gencode arch=compute_60,code=sm_60 \
@@ -23,8 +24,7 @@ ARCH = -gencode arch=compute_37,code=sm_37 \
        -gencode arch=compute_75,code=sm_75 \
        -gencode arch=compute_37,code=compute_37 \
 
-#NVCCFLAGS=-std=c++11 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
-NVCCFLAGS=-std=c++11 -gencode=arch=compute_52,code=compute_52 -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
+NVCCFLAGS=-std=c++11 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}" -Wno-deprecated-gpu-targets
 
 
 CUDA_HOME=/usr/local/cuda
